@@ -1,0 +1,111 @@
+// License: GPL. For details, see LICENSE file.
+package org.openstreetmap.josm.plugins.turnlanestagging.preset;
+
+import static org.openstreetmap.josm.tools.I18n.tr;
+
+import java.util.List;
+
+import javax.swing.table.AbstractTableModel;
+
+import org.openstreetmap.josm.plugins.turnlanestagging.bean.BRoad;
+import org.openstreetmap.josm.plugins.turnlanestagging.util.Util;
+
+public class PresetsTableModel extends AbstractTableModel {
+
+    List<BRoad> listBRoad;
+    boolean isNone;
+    Class<?>[] columns = {Object.class, Object.class, Object.class};
+    String[] titles = {tr("Directional"), tr("Number of lanes"), tr("Turn lanes")};
+
+    public PresetsTableModel(List<BRoad> list, boolean isNone) {
+        super();
+        this.listBRoad = list;
+        this.isNone = isNone;
+    }
+
+    @Override
+    public int getRowCount() {
+        return listBRoad.size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return columns.length;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        switch (columnIndex) {
+            case 0:
+                return listBRoad.get(rowIndex).getName();
+            case 1:
+                if (listBRoad.get(rowIndex).getName().equals("Unidirectional")) {
+                    return String.valueOf(listBRoad.get(rowIndex).getLanesUnid().getLanes().size());
+                } else {
+                    return String.valueOf(listBRoad.get(rowIndex).getNumLanesBidirectional());
+                }
+            case 2:
+                if (listBRoad.get(rowIndex).getName().equals("Unidirectional")) {
+                    if (isNone) {
+                        return Util.setNoneOnEmpty(listBRoad.get(rowIndex).getLanesUnid().getTagturns());
+                    } else {
+                        return listBRoad.get(rowIndex).getLanesUnid().getTagturns();
+                    }
+                } else {
+                    String textTurns = "";
+                    if (listBRoad.get(rowIndex).getLanesA().getLanes().size() > 0) {
+                        if (isNone) {
+                            textTurns = listBRoad.get(rowIndex).getLanesA().getType() + ": " +
+                                    Util.setNoneOnEmpty(listBRoad.get(rowIndex).getLanesA().getTagturns());
+                        } else {
+                            textTurns = listBRoad.get(rowIndex).getLanesA().getType() + ": " +
+                                    listBRoad.get(rowIndex).getLanesA().getTagturns();
+                        }
+                    }
+                    if (listBRoad.get(rowIndex).getLanesB().getLanes().size() > 0) {
+                        if (isNone) {
+                            textTurns = textTurns + "  " + listBRoad.get(rowIndex).getLanesB().getType() + ": " +
+                                    Util.setNoneOnEmpty(listBRoad.get(rowIndex).getLanesB().getTagturns());
+                        } else {
+                            textTurns = textTurns + "  " + listBRoad.get(rowIndex).getLanesB().getType() + ": " +
+                                    listBRoad.get(rowIndex).getLanesB().getTagturns();
+                        }
+                    }
+                    if (listBRoad.get(rowIndex).getLanesC().getLanes().size() > 0) {
+                        if (isNone) {
+                            textTurns = textTurns + " " + listBRoad.get(rowIndex).getLanesC().getType() + ": " +
+                                    Util.setNoneOnEmpty(listBRoad.get(rowIndex).getLanesC().getTagturns());
+                        } else {
+                            textTurns = textTurns + " " + listBRoad.get(rowIndex).getLanesC().getType() + ": " +
+                                    listBRoad.get(rowIndex).getLanesC().getTagturns();
+                        }
+                    }
+                    return textTurns;
+                }
+
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    public Class<?> getColumnClass(int columnIndex) {
+        return columns[columnIndex];
+
+    }
+
+    @Override
+    public String getColumnName(int columnIndex) {
+        return titles[columnIndex];
+
+    }
+
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return false;
+    }
+
+    public void clear() {
+        listBRoad.clear();
+    }
+}

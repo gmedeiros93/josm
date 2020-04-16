@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="kartverketimport" default="dist" basedir=".">
+
+    <!-- enter the SVN commit message -->
+    <property name="commit.message" value="Initial"/>
+    <!-- enter the *lowest* JOSM version this plugin is currently compatible with -->
+    <property name="plugin.main.version" value="14628"/>
+	<property name="plugin.canloadatruntime" value="true"/>
+    <!-- Configure these properties (replace "..." accordingly).
+         See https://josm.openstreetmap.de/wiki/DevelopersGuide/DevelopingPlugins
+    -->
+    <property name="plugin.author" value="Torstein Ingebrigtsen Bø"/>
+    <property name="plugin.class" value="org.openstreetmap.josm.plugins.kartverket.KartverketPlugin"/>
+    <property name="plugin.description" value="Tools to help import Kartverket N50"/>
+	<property name="plugin.link" value="https://github.com/JOSM/kartverketimport"/> 
+    <!--<<property name="plugin.icon" value="..."/>-->
+    <!--<property name="plugin.link" value="..."/>-->
+    <!--<property name="plugin.early" value="..."/>-->
+    <property name="plugin.requires" value="utilsplugin2"/>
+    <!--<property name="plugin.stage" value="..."/>-->
+
+	<target name="additional-manifest">
+        <manifest file="MANIFEST" mode="update">
+            <attribute name="12643_Plugin-Url" value="v1.0;https://github.com/JOSM/kartverketimport/releases/download/v1.0/kartverketimport.jar" />
+        	<attribute name="14153_Plugin-Url" value="v1.0;https://github.com/JOSM/kartverketimport/releases/download/v1.0.1/kartverketimport.jar" />
+        </manifest>
+    </target>
+
+    <!-- ** include targets that all plugins have in common ** -->
+    <import file="../build-common.xml"/>
+	<fileset id="plugin.requires.jars" dir="${plugin.dist.dir}">
+		<include name="utilsplugin2.jar"/>
+	</fileset>
+  
+</project>

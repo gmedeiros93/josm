@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="geojson" default="dist" basedir=".">
+
+    <!-- enter the SVN commit message -->
+    <property name="commit.message" value=""/>
+    <property name="plugin.src.dir" value="src/main/java"/>
+    <!-- edit the properties of this plugin in the file `gradle.properties` -->
+    <property file="${basedir}/gradle.properties"/>
+
+    <!-- ** include targets that all plugins have in common ** -->
+    <import file="../build-common.xml"/>
+
+    <fileset id="plugin.requires.jars" dir="${plugin.dist.dir}">
+
+    </fileset>
+
+</project>

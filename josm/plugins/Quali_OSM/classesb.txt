@@ -1,0 +1,6 @@
+1 13 118 9 Tree/Water
+2 90 221 29 Grass
+3 133 133 133 Human Construction
+4 0 0 0 
+5 0 0 0 
+6 0 0 0 

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.ant.freeform</type>
+    <configuration>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
+            <!-- Não usar personalizador das Propriedades do Projeto ao editar este arquivo manualmente. 
+ Para impedir que o personalizador seja exibido, crie o arquivo nbproject/project.properties e digite a propriedade
+auxiliary.show.customizer=false 
+lá. Adicionar 
+auxiliary.show.customizer.message=<message>
+ mostrará sua mensagem personalizada quando alguém tentar abrir o personalizador.  -->
+            <name>QualiOSM</name>
+            <properties/>
+            <folders>
+                <source-folder>
+                    <label>src</label>
+                    <type>java</type>
+                    <location>src</location>
+                </source-folder>
+            </folders>
+            <ide-actions>
+                <action name="build">
+                    <target>compile</target>
+                </action>
+                <action name="clean">
+                    <target>clean</target>
+                </action>
+                <action name="javadoc">
+                    <target>javadoc</target>
+                </action>
+                <action name="run">
+                    <target>runjosm</target>
+                </action>
+                <action name="test">
+                    <target>test</target>
+                </action>
+                <action name="rebuild">
+                    <target>clean</target>
+                    <target>compile</target>
+                </action>
+            </ide-actions>
+            <export>
+                <type>jar</type>
+                <location>C:\Users\gabri\JOSM2\josm\core\dist\josm-custom.jar</location>
+                <build-target>compile</build-target>
+            </export>
+            <view>
+                <items>
+                    <source-folder style="packages">
+                        <label>src</label>
+                        <location>src</location>
+                    </source-folder>
+                    <source-file>
+                        <location>build.xml</location>
+                    </source-file>
+                </items>
+                <context-menu>
+                    <ide-action name="build"/>
+                    <ide-action name="rebuild"/>
+                    <ide-action name="clean"/>
+                    <ide-action name="javadoc"/>
+                    <ide-action name="run"/>
+                    <ide-action name="test"/>
+                </context-menu>
+            </view>
+            <subprojects>
+                <project>.</project>
+            </subprojects>
+        </general-data>
+        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/4">
+            <compilation-unit>
+                <package-root>src</package-root>
+                <classpath mode="compile">C:\Users\gabri\JOSM2\josm\core\dist\josm-custom.jar</classpath>
+                <built-to>C:\Users\gabri\JOSM2\josm\core\dist\josm-custom.jar</built-to>
+                <source-level>1.8</source-level>
+            </compilation-unit>
+        </java-data>
+    </configuration>
+</project>

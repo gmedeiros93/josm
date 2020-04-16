@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<processing xmlns="http://kabeja.org/processing/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <!--+
+        | The processing configuration
+        +-->
+    <configuration>
+        <!--+
+            | If you want to configure the parser you can change the parser.xml and use it here or
+                | register your own parser for other input formats
+                |  <parsers>
+            |   <xi:include href="conf/parser.xml"/>
+            |  </parsers>
+            +-->
+        <postprocessors>
+            <postprocessor class="org.kabeja.processing.BoundsDebugger" name="bounds.debugger"/>
+            <!--  removes all image entities if the images file does not exists -->
+            <postprocessor class="org.kabeja.processing.ImageFilter" name="image.filter"/>
+            <postprocessor class="org.kabeja.processing.BoundsFilter" name="bounds.filter"/>
+            <!-- allows you to remove layers from the draft and merge all layers to one -->
+            <postprocessor class="org.kabeja.processing.LayerFilter" name="layer.filter"/>
+            <!--  converts lines,arcs and polylines to a single polyline, if they have the same points -->
+            <postprocessor class="org.kabeja.processing.PolylineConverter" name="polyline.converter"/>
+            <!-- removes invisible entities -->
+            <postprocessor class="org.kabeja.processing.VisibilityFilter" name="visibility.filter"/>
+        </postprocessors>
+
+        <filters>
+            <filter class="org.kabeja.svg.FixedStrokeWidthFilter" name="fixed-stroke-width"/>
+            <filter class="org.kabeja.svg.RootLayerFilter" name="rootlayer.filter"/>
+            <filter class="org.kabeja.svg.StyleAttributeFilter" name="styleattribute.filter"/>
+        </filters>
+        
+        <serializers>
+            <serializer class="org.kabeja.xml.SAXPrettyOutputter" name="svg"/>
+        </serializers>
+
+        <generators>
+            <generator class="org.kabeja.svg.SVGGenerator" name="svg">
+                            <!--+
+                                | possible values are:
+                                | *) modelspace
+                                | *) paperspace
+                                | *) kabeja   -> the default
+                                +--> 
+                <property name="bounds-rule" value="kabeja"/>
+
+                            <!--+
+                                | * you can choose a layout
+                                |   by name:
+                                |   <property name="output-style-name" value="myLayout2"/>
+                                |   or the default "Model"-layout will be used
+                                +-->
+                <property name="output-style" value="layout"/>
+
+                            <!--+
+                                | you can setup an own stroke width for the draft
+                                | this will override the draft line weight
+                                | <property name="stroke-width" value="0.02%"/>
+                                +-->
+            </generator>
+        </generators>
+    </configuration>
+    
+    <!--+
+        | The processing pipelines
+        +-->
+    <pipelines>
+        <pipeline name="svg" description="Converts the draft to SVG">
+            <generate name="svg"/>
+            <serialize name="svg"/>
+        </pipeline>
+    </pipelines>
+</processing>

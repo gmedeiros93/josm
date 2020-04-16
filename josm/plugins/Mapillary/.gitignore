@@ -1,0 +1,22 @@
+# Eclipse
+/.classpath
+/.project
+/.settings/org.sonarlint.*
+/bin/
+
+# IntelliJ idea
+/*.iml
+/*.iws
+/*.ipr
+/out/
+/.idea/*
+!/.idea/codeStyles/
+/.idea/codeStyles/*
+!/.idea/codeStyles/codeStyleConfig.xml
+!/.idea/codeStyles/Project.xml
+
+# Gradle
+/build/
+/.gradle/
+
+/test/data/preferences/

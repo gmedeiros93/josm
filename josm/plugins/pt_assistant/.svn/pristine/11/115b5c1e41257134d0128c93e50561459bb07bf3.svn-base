@@ -1,0 +1,477 @@
+# Translations for the JOSM plugin 'pt_assistant' (es)
+# Copyright (C) 2018
+# This file is distributed under the same license as the josm-plugin_pt_assistant package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: josm-plugin_pt_assistant v2.1.9-72-g1429cfa\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-15 16:58+0000\n"
+"PO-Revision-Date: 2018-05-10 08:41+0000\n"
+"Language-Team: Spanish (https://www.transifex.com/josm/teams/2544/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A valid public_transport:version=2 route is required"
+msgstr "Se requiere una ruta valida public_transport:version=2"
+
+msgid "Add public_transport=stop_position + mode of transport on these nodes"
+msgstr ""
+"Añadir public_transport=stop_position + modos de transporte en estos nodos"
+
+msgid "Always split ways, even if they are not at the end of the itinerary"
+msgstr "Siembre separar vías, aunque no estén al final del itinerario"
+
+msgid "Area"
+msgstr "Área"
+
+msgid "Area around way"
+msgstr "Área alrededor de la vía"
+
+msgid "Area before removal"
+msgstr "Área antes de eliminación"
+
+msgid "Bench"
+msgstr "Banco"
+
+msgid "Bicycle and foot routes Tests"
+msgstr "Pruebas de rutas pedestres y bicisendas"
+
+msgid "Bus"
+msgstr "Autobús"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid ""
+"Check if route relations are compatible with public transport version 2"
+msgstr ""
+"Comprobar si las relaciones de ruta son compatibles con la versión 2 del "
+"transporte público"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Displays stops of selected public transport routes as graph"
+msgstr ""
+"Muestra las paradas de rutas de transporte público seleccionadas como "
+"gráfico"
+
+msgid "Distance between stops"
+msgstr "Distancia entre paradas"
+
+msgid "Do you want to download referrers of platforms and stop positions?"
+msgstr ""
+"¿Desea descargar las referentes de plataformas y posiciones de paradas?"
+
+msgid "Do you want to make the roundabout round?"
+msgstr "¿Desea hacer redonda la rotonda?"
+
+msgid ""
+"Don’t add public_transport=platform and mode of transport to node "
+"representing the stop (suffice with highway=bus_stop or railway=tram_stop)"
+msgstr ""
+"No añadir public_transport=platform y modo de transporte al nodo "
+"representando la parada (suficiente con highway=bus_stop o "
+"railway=tram_stop)"
+
+msgid ""
+"Don’t check whether route relation starts and ends on stop_position node"
+msgstr ""
+"No verifique si la relación de ruta empieza y termina en el nodo de "
+"stop_position"
+
+msgid "Don’t compare name of first stop with from tag in route relation"
+msgstr ""
+"No compare el nombre de la primera parada con la etiqueta Desde en la "
+"relación de ruta"
+
+msgid "Don’t compare name of last stop with to tag in route relation"
+msgstr ""
+"No compare el nombre de la primera parada con la etiqueta A en la relación "
+"de ruta"
+
+#, java-format
+msgid "Download finished: {0}"
+msgstr "Descarga finalizada: {0}"
+
+#. CHECKSTYLE.OFF: LineLength
+msgid "Download incomplete route relation members"
+msgstr "Descarga miembros de la relación de ruta incompletos"
+
+#, java-format
+msgid "Download started: {0}"
+msgstr "Descarga iniciada: {0}"
+
+msgid ""
+"Downloading incomplete relation members. Kindly wait till download gets "
+"over."
+msgstr ""
+"Descargando miembros de la relación incompletos. Por favor espere hasta que "
+"la descarga termine."
+
+msgid "Entire area"
+msgstr "Área completa"
+
+msgid "Extract node from line"
+msgstr "Extraer el nodo de la línea"
+
+msgid "Extract platform node"
+msgstr "Extraer nodo de plataforma"
+
+msgid "Extracts platform node from a node"
+msgstr "Extraer nodo de plataforma de un nodo"
+
+msgid "Fix error"
+msgstr "Arreglar error"
+
+#, java-format
+msgid "Fixing ({0}/{1}): ''{2}''"
+msgstr "Corrigiendo ({0}/{1}): ''{2}''"
+
+msgid "Here you can change some preferences of PTAssistant functions"
+msgstr ""
+"Aquí puede cambiar algunas de las preferencias de las funciones de "
+"PTAssistant"
+
+msgid "How do you want to proceed?"
+msgstr "¿Cómo desea proceder?"
+
+msgid "Include stop_area tests"
+msgstr "Incluir análisis de stop_area"
+
+msgid "Incomplete Members"
+msgstr "Miembros incompletos"
+
+msgid "Incomplete relations"
+msgstr "Relaciones incompletas"
+
+msgid "Invalid selection"
+msgstr "Selección no válida"
+
+#, java-format
+msgid ""
+"Mode of Travel -> {0} \n"
+" total ways selected -> {1}"
+msgstr ""
+"Modo de Viaje -> {0}\n"
+" total de vías seleccionadas -> {1}"
+
+#, java-format
+msgid "Mode: {0}"
+msgstr "Modo: {0}"
+
+msgid "NA"
+msgstr "NA"
+
+#. i18n: label for the tag name=*
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Network"
+msgstr "Red"
+
+msgid "No"
+msgstr "No"
+
+msgid "Ok"
+msgstr "Aceptar"
+
+msgid "Operator"
+msgstr "Operador"
+
+msgid "PT Wizard"
+msgstr "Asistente PT"
+
+msgid "PT: First or last way needs to be split"
+msgstr "PT: Es necesario dividir la primera o última vía"
+
+msgid "PT: Platform should not be part of a way"
+msgstr "PT: La plataforma no debe formar parte de una vía"
+
+msgid "PT: Problem in the route segment with no automatic fix"
+msgstr "PT: Problema en el segmento de ruta sin corrección automática"
+
+msgid "PT: Problem in the route segment with one automatic fix"
+msgstr "PT: Problema en el segmento de ruta con una corrección automática"
+
+msgid ""
+"PT: Refs of the routes do not match with the route_ref tag of the primitive"
+msgstr ""
+"PT: Referencias de las rutas no concuerdan con la etiqueta route_ref de la "
+"primitiva"
+
+msgid "PT: Relation member roles do not match tags"
+msgstr ""
+"PT: Los roles de los miembros de la relación no coinciden con las etiquetas"
+
+msgid "PT: Road is under construction"
+msgstr "PT: La carretera se encuentra en construcción"
+
+msgid "PT: Route contains a gap that can be fixed by sorting"
+msgstr ""
+"PT: La ruta contiene una interrupción que puede ser corregida si se ordena"
+
+msgid "PT: Route gap can be closed by adding a single way"
+msgstr ""
+"PT: la interrupción en la ruta puede ser cerrada añadiendo una vía simple"
+
+msgid ""
+"PT: Route gaps can decrease by sorting members. Further validations will be "
+"required"
+msgstr ""
+"PT: Las interrupciones de la ruta pueden disminuir ordenando los miembros. "
+"Se requerirán además otras validaciones"
+
+msgid "PT: Route needs to be sorted, found tag fixme:relation=order members"
+msgstr ""
+"PT: la ruta debe ser ordenada, se encontró una etiqueta fixme:relation=order"
+" members"
+
+msgid "PT: Route passes a oneway road in the wrong direction"
+msgstr ""
+"PT: La ruta pasa por una carretera de un único sentido en la dirección "
+"equivocada"
+
+msgid ""
+"PT: Route relations of stop position(s) and platform(s) of stop area members"
+" diverge"
+msgstr ""
+"PT: Las relaciones de posición de parada de rutas y las plataformas de los "
+"miembros del área de parada divergen"
+
+msgid "PT: Route should start and end with a stop_position"
+msgstr "PT: La ruta debe empezar y terminar con una posición de parada"
+
+msgid "PT: Route type does not match the type of the road it passes on"
+msgstr ""
+"PT: El tipo de ruta no corresponde con el tipo de carretera por la que pasa"
+
+msgid "PT: Stop area relation has no platform"
+msgstr "PT: La relación de área de parada no tiene plataforma"
+
+msgid "PT: Stop area relation has no stop position"
+msgstr "PT: La relación de área de parada no tiene una posición de detención"
+
+msgid "PT: Stop not served"
+msgstr "PT: Parada no operativa"
+
+msgid "PT: Stop position or platform is not part of a stop area relation"
+msgstr ""
+"PT: La posición de detención o de la plataforma no es parte de una relación "
+"de área de parada"
+
+msgid "PT: Stop_position is not part of a way"
+msgstr "PT: La posición de parada no es parte de una vía"
+
+msgid "PT: The first stop of the route does not match the first way"
+msgstr "PT: la primer parada de la ruta no concuerda con la primer vía"
+
+msgid "PT: The last stop of the route does not match the last way"
+msgstr "PT: la última parada de la ruta no concuerda con la última vía"
+
+msgid ""
+"PT: The name of the first stop does not match the \"from\" tag of the route "
+"relation"
+msgstr ""
+"PT: el nombre de la primer parada no concuerda con la etiqueta \"from\" de "
+"la relación de ruta"
+
+msgid ""
+"PT: The name of the last stop does not match the \"to\" tag of the route "
+"relation"
+msgstr ""
+"PT: el nombre de la última parada no concuerda con la etiqueta \"to\" de la "
+"relación de ruta"
+
+#, java-format
+msgid "PT: There is a gap in the {0} route"
+msgstr "PT: Hay una interrupción en la ruta {0}"
+
+msgid "PT: dummy test warning"
+msgstr "PT: advertencia de ensayo simulado"
+
+msgid "PTAssistantPlugin settings"
+msgstr "Preferencias de PTAssistantPlugin"
+
+msgid "PT_Assistant Fetch Request"
+msgstr "Asistente PT de petición de recuperación"
+
+msgid "PT_Assistant Message"
+msgstr "Mensaje de PT_Assistant"
+
+#. showDialog(); FIXME
+msgid "PT_Assistant Proceed Request"
+msgstr "PT_Assistant procedió a la solicitud"
+
+#, java-format
+msgid "PT_Assistant plugin found that this relation (id={0}) has errors:"
+msgstr ""
+"El complemento PT_Assistant encontró que esta relación (ID = {0}) tiene "
+"errores:"
+
+msgctxt "menu"
+msgid "Public Transport"
+msgstr "Transporte público"
+
+msgid "Public Transport Assistant tests"
+msgstr "Tests del Asistente de Transporte Público"
+
+msgid "Public transport routes"
+msgstr "Rutas de transporte público"
+
+msgid ""
+"Refs of the routes do not match with the route_ref tag of the primitive"
+msgstr ""
+"Referencias de las rutas no concuerdan con la etiqueta route_ref de la "
+"primitiva"
+
+msgid "Remember my choice and do not ask me again in this session"
+msgstr "Recordar mi elección y no volver a preguntar en esta sesión"
+
+msgid "Remove public_transport=platform from platform ways"
+msgstr "Quitar public_transport=platform de las vías de plataforma"
+
+msgid "Repeat last fix"
+msgstr "Repetir la última corrección"
+
+msgid "Replace Membership"
+msgstr "Reemplazar Miembros"
+
+msgid ""
+"Replace platform way in the route relations by node representing the stop"
+msgstr ""
+"Reemplazar vía de plataforma en las relaciones de ruta por nodo "
+"representando la parada"
+
+msgid "Roundabout round"
+msgstr "Rotonda redonda"
+
+msgid ""
+"Route relations have incomplete members.\n"
+"They need to be downloaded to proceed with validation.\n"
+"Do you want to download them?"
+msgstr ""
+"Las relaciones de ruta tienen miembros incompletos.\n"
+"Necesitan ser descargados para proceder a la validación.\n"
+"¿Desea descargarlas?"
+
+msgid "Routing Helper"
+msgstr "Ayudante de Ruteo"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Set up PT Assistant for more convenient use"
+msgstr "Configure el Asistente PT para uso más conveniente"
+
+msgid "Share taxi"
+msgstr "Taxi compartido"
+
+msgid "Shelter"
+msgstr ""
+"Albergue temporal (para colectivos en situación de exclusión, riesgo o "
+"desastre)"
+
+msgid "Split way"
+msgstr "Dividir la vía"
+
+msgid ""
+"The relation has incomplete members. Do you want to download them and "
+"continue with the sorting?"
+msgstr ""
+"La relación tiene miembros incompletos. ¿Desea descargarlos y continuar con "
+"la clasificación?"
+
+msgid "The selected node is not a stop position for public transport!"
+msgstr ""
+"¡El nodo seleccionado no es una posición de parada para transporte público!"
+
+msgid "This action requires single node to be selected."
+msgstr "Esta acción requiere un solo nodo a ser seleccionado."
+
+msgid "Toggle direction arrows"
+msgstr "Cambiar la dirección de las flechas"
+
+msgid "Toggle reference labels"
+msgstr "Cambiar las etiquetas de referencia"
+
+#, java-format
+msgid "Tool: {0}"
+msgstr "Herramienta: {0}"
+
+msgid "Tram"
+msgstr "Tranvía"
+
+msgid ""
+"Transfer details from platform way to node representing the stop (leave "
+"tactile_paving and wheelchair on the platform way)"
+msgstr ""
+"Transfiriendo detalles de la vía de la plataforma al nodo representando la "
+"parada (deje tactile_paving y wheelchair en la vía de la plataforma)"
+
+msgid ""
+"Transfer details from stop_position nodes to node representing the stop"
+msgstr ""
+"Transferir detalles desde los nodos de posición de parada al nodo "
+"representando la parada."
+
+msgid "Trolleybus"
+msgstr "Trolebús"
+
+msgid "Type letter to select the fix variant or press Escape for no fix"
+msgstr ""
+"Introduzca el tipo de letra para seleccionar la variante de solución de "
+"problemas o pulse la tecla Esc para no elegir ninguna solución"
+
+#, java-format
+msgid "Unable to connect to {0}"
+msgstr "No se ha podido conectar a {0}"
+
+msgid "Updating map ..."
+msgstr "Actualizando mapa..."
+
+msgid "Use 1/2/3/4 instead of A/B/C/D for selecting which way to follow"
+msgstr "Use 1/2/3/4 en lugar de A/B/C/D para seleccionar qué vía seguir"
+
+msgid "Visualize public transport routes"
+msgstr "Visualizar las rutas del transporte público"
+
+msgid "Warning: the diplayed fix variants are based on less strict criteria"
+msgstr ""
+"Advertencia: las variantes de resolución de problemas que se muestran se "
+"basan en criterios menos estrictos"
+
+msgid "What do you want the segment to be?"
+msgstr "¿Qué quiere que sea el segmento?"
+
+msgid "Yes"
+msgstr "Si"
+
+msgid "suggested value : "
+msgstr "Valor sugerido :"
+
+#, java-format
+msgid "{0} direction error"
+msgid_plural "{0} direction errors"
+msgstr[0] "{0} error de dirección"
+msgstr[1] "{0} errores de dirección"
+
+#, java-format
+msgid "{0} road type error"
+msgid_plural "{0} road type errors"
+msgstr[0] "{0} error en el tipo de carretera"
+msgstr[1] "{0} errores en el tipo de carretera"
+
+#. Plugin description for pt_assistant
+msgid ""
+"Provides validation and fixing for public transport route according to "
+"version 2 of the public transport schema"
+msgstr ""
+"Brinda validación y arreglos para rutas de transporte público de acuerdo con"
+" la versión 2 de el esquema de transporte público"

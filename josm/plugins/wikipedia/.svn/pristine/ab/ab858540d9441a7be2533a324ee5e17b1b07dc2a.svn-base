@@ -1,0 +1,457 @@
+# Translations for the JOSM plugin 'wikipedia' (ru)
+# Copyright (C) 2018
+# This file is distributed under the same license as the josm-plugin_wikipedia package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: josm-plugin_wikipedia v1.1.1-12-gaf4f04c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-11 19:40+0000\n"
+"PO-Revision-Date: 2018-05-12 22:55+0000\n"
+"Language-Team: Russian (https://www.transifex.com/josm/teams/2544/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+msgid "''{0}'' is an illegal language code!"
+msgstr "''{0}'' — недопустимый код языка!"
+
+msgid "({0} items, processing batch {1} of {2})"
+msgstr "({0} элементов, обработка пакета {1} из {2})"
+
+msgid "Add Tag"
+msgstr "Добавить тег"
+
+msgid "Add Wikidata"
+msgstr "Добавить Викиданные"
+
+msgid "Add Wikidata for language ''{0}''"
+msgstr "Добавить Викиданные для языка ''{0}''"
+
+msgid "Add names from Wikipedia"
+msgstr "Добавить названия из Википедии"
+
+msgid "Add new snippet"
+msgstr "Добавить новый фрагмент"
+
+msgid ""
+"Adds a ''wikipedia'' tag corresponding to this article to the selected "
+"objects"
+msgstr ""
+"Добавляет тег «wikipedia», соответствующий этой статье, выбранным объектам"
+
+msgid "Available in local dataset"
+msgstr "Доступно в локальном наборе данных"
+
+msgid "Available via WIWOSM server"
+msgstr "Доступно через WIWOSM сервер"
+
+msgid "Can't open website {0} in browser! Error message: {1}"
+msgstr "Не удается открыть веб-сайт {0} в браузере! Сообщение об ошибке: {1}"
+
+msgid "Cancel"
+msgstr "Отменить"
+
+msgid "Change wikipedia tag?"
+msgstr "Изменить тег wikipedia?"
+
+msgid "Check wikipedia=* is interwiki link of wikidata=*"
+msgstr ""
+"Проверка того, что wikipedia=* является интервики-ссылкой на wikidata=*"
+
+msgid "Check wikipedia=* is not a redirect"
+msgstr "Проверка того, что wikipedia=* не является перенаправлением"
+
+msgid "Contacting Server..."
+msgstr "Соединение с сервером..."
+
+msgid ""
+"Copies the {0} template to the system clipboard instantiated with the "
+"coordinates of the first selected node"
+msgstr ""
+"Копирует в буфер обмена шаблон {0}, подставив в него координаты первой "
+"выделенной точки"
+
+msgid "Copy {0} template"
+msgstr "Копировать шаблон {0}"
+
+msgid ""
+"Could not check for all wikipedia=* tags if they match the wikidata=* tag."
+msgstr ""
+"Не удалось проверить, все ли теги wikipedia=* соответствуют тегу wikidata=*."
+
+msgid ""
+"Could not check for all wikipedia=* tags if they redirect to another lemma."
+msgstr ""
+"Не удалось проверить, все ли теги wikipedia=* перенаправляют на другую "
+"лемму."
+
+msgid "Could not check for unusual classes in wikidata=* tags."
+msgstr "Не удалось проверить на наличие необычных классов в тегах wikidata=*."
+
+msgid ""
+"Could not connect to the {0}, probably a network issue or the website is "
+"currently offline ({1}: {2})"
+msgstr ""
+"Не удалось соединиться с {0}, возможно, проблема с сетью или веб-сайт сейчас"
+" не работает ({1}: {2})"
+
+msgid "Could not validate all wikidata=* tags over the internet."
+msgstr "Не удалось проверьть все теги wikidata=* через интернет."
+
+msgid "Delete selected snippet"
+msgstr "Удалить выделенный фрагмент"
+
+msgid ""
+"Double click on item to search for object with article name (and center "
+"coordinate)"
+msgstr ""
+"Щёлкните на строчке дважды, чтобы найти объект по названию статьи и "
+"приблизить его."
+
+msgid "Download all elements from one of {0} sources"
+msgstr "Скачать все элементы из одного из {0} источников"
+
+msgid "Download elements"
+msgstr "Скачать элементы"
+
+msgid "Download from Sophox API"
+msgstr "Скачать из Sophox API"
+
+msgid "Download referrers (parent relations)"
+msgstr "Скачать ссылающихся на объект (родительские отношения)"
+
+msgid "Download relation members"
+msgstr "Скачать участников отношений"
+
+msgid "Downloading entries with geo coordinates failed: {0}"
+msgstr "Ошибка загрузки записей с географическими координатами: {0}"
+
+msgid "Edit selected snippet"
+msgstr "Изменить выделенный фрагмент"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Fetch Wikidata IDs"
+msgstr "Получить ID Викиданных"
+
+msgid "Fetch Wikidata IDs using the ''wikipedia'' tag"
+msgstr "Получить идентификаторы Викиданных, используя тег ''wikipedia''"
+
+msgid "Fetch Wikipedia articles with coordinates"
+msgstr "Получить статьи Википедии с координатами"
+
+msgid "Fetches a list of all Wikipedia articles of a category"
+msgstr "Получение списка всех статей категории из Википедии"
+
+msgid "Fetches all coordinates from Wikidata in the current view"
+msgstr ""
+"Получение из Викиданных всех координат для видимой в окне области карты"
+
+msgid "Fetches all coordinates from Wikipedia in the current view"
+msgstr ""
+"Получение из Википедии всех координат для видимой в окне области карты"
+
+msgid ""
+"Fetches interwiki links from Wikipedia in order to add several name tags"
+msgstr ""
+"Получить интервики-ссылки из Википедии для добавления нескольких тегов name"
+
+msgid "Fetching Wikidata IDs"
+msgstr "Получение идентификаторов Викиданных"
+
+msgid "Fetching {0} Wikidata ID for language ''{1}''"
+msgid_plural "Fetching {0} Wikidata IDs for language ''{1}''"
+msgstr[0] "Получение {0} идентификатора Викиданных для языка ''{1}''"
+msgstr[1] "Получение {0} идентификаторов Викиданных для языка ''{1}''"
+msgstr[2] "Получение {0} идентификаторов Викиданных для языка ''{1}''"
+msgstr[3] "Получение {0} идентификаторов Викиданных для языка ''{1}''"
+
+msgid ""
+"Find OSM objects linked with wikidata items of a class that is untypical for"
+" OSM"
+msgstr ""
+"Искать объекты OSM, связанные с нетипичным для OSM классом элемента "
+"wikidata."
+
+msgid ""
+"Find places of education at least 2km, and at most 3km from the center of "
+"the selection"
+msgstr ""
+"Поиск образовательных учреждений в пределах от 2 до 3 км от центра "
+"выделенной области"
+
+msgid "Invalid Q-ID! Cannot exist on Wikidata."
+msgstr "Недоаустимый Q-ID! Не может существовать в Викиданных."
+
+msgid "Item {0} does not exist!"
+msgstr "Элемент {0} не существует!"
+
+msgid "Item {0} is missing"
+msgstr "Элемент {0} отсутствует"
+
+msgid "Item {0} redirects to {1}"
+msgstr "Элемент {0} перенаправляет к {1}"
+
+msgid "Links"
+msgstr "Ссылки"
+
+msgid "Load category"
+msgstr "Загрузка категории"
+
+msgid ""
+"Make sure that the wikipedia=* article is not redirecting to another lemma"
+msgstr "Убедитесь, что статья wikipedia=* не перенаправляет на другую лемму"
+
+msgid ""
+"Make sure the Wikidata item for the Q-ID in the wikidata=* tag actually "
+"exists"
+msgstr ""
+"Убедитесь, что элемент Викиданных для Q-ID в теге wikidata=* действительно "
+"существует"
+
+msgid ""
+"Makes sure that the wikipedia=* article is connected to the wikidata=* item"
+msgstr "Проверяет, что статья wikipedia=* соединена с элементом wikidata=*"
+
+msgid "More than one OSM object is selected: {0}"
+msgstr "Выбрано больше чем один объект OSM: {0}"
+
+msgid "No Wikidata ID found for: {0}"
+msgstr "Не найден идентификатор Викиданных для: {0}"
+
+msgid "No Wikidata item is selected!"
+msgstr "Не выбран элемент Викиданных!"
+
+msgid "Not linked yet"
+msgstr "Ссылка ещё не создана"
+
+msgid "Open Article"
+msgstr "Открыть статью"
+
+msgid "Opens the Wikipedia article of the selected item in a browser"
+msgstr "Открыть в браузере статью из Википедии о выбранном объекте"
+
+msgid "Overwrite ''{0}'' tag {1} from {2} with new value ''{3}''?"
+msgid_plural "Overwrite ''{0}'' tags {1} from {2} with new value ''{3}''?"
+msgstr[0] "Перезаписать тег ''{0}''  {1} из {2} новым значением ''{3}''?"
+msgstr[1] "Перезаписать теги ''{0}''  {1} из {2} новым значением ''{3}''?"
+msgstr[2] "Перезаписать теги ''{0}''  {1} из {2} новым значением ''{3}''?"
+msgstr[3] "Перезаписать теги ''{0}''  {1} из {2} новым значением ''{3}''?"
+
+msgid "Overwrite key"
+msgstr "Затереть клавишу"
+
+msgid "Paste Wikipedia articles"
+msgstr "Вставить статьи Википедии"
+
+msgid "Pastes Wikipedia articles from the system clipboard"
+msgstr "Вставляет статьи Википедии из системного буфера обмена"
+
+msgid "Please select a download area first."
+msgstr "Пожалуйста, выберите сначала область для скачивания."
+
+msgid "Search Wikidata items"
+msgstr "Поиск элементов Викиданных"
+
+msgid "Search Wikipedia category"
+msgstr "Поиск категории Википедии"
+
+msgid "See the validator messages of the category ''Other'' for more details."
+msgstr "Подробности смотрите в сообщениях валидатора категории ''Прочее''."
+
+msgid "Select if the members of a relation should be downloaded as well"
+msgstr "Отметьте, если должны быть скачаны и участники отношения"
+
+msgid ""
+"Select if the referrers of the object should be downloaded as well, "
+"i.e.,parent relations and for nodes, additionally, parent ways"
+msgstr ""
+"Отметьте, если должны быть скачаны и объекты, ссылающиеся на данный "
+"(родительские отношения, для точек - родительские линии)"
+
+msgid "Sets the default language for the Wikipedia articles"
+msgstr "Выбрать язык по умолчанию для статей Википедии"
+
+msgid ""
+"Should the wikipedia tag be replaced with the redirect target? Make sure the meaning of the tag remains the same!\n"
+"\n"
+"Before: wikipedia={0}:{1}\n"
+"After: wikipedia={0}:{2}"
+msgstr ""
+"Стоить ли заменить тег wikipedia на перенаправляемую страницу? Убедителсь, что значение тега остаётся прежним!\n"
+"\n"
+"До: wikipedia={0}:{1}\n"
+"После: wikipedia={0}:{2}"
+
+msgid "Show properties of the selected Wikidata item"
+msgstr "Показать свойства выбранного элемента Викиданных"
+
+msgid "Show/hide Sophox snippet list"
+msgstr "Показать/скрыть список фрагментов запросов Sophox"
+
+msgid "Sophox server"
+msgstr "Сервер Sophox"
+
+msgid "Target key: "
+msgstr "Целевой ключ: "
+
+msgid "The JSON response from the {0} can''t be decoded!"
+msgstr "Ответ JSON от {0} не может быть расшифрован!"
+
+msgid "The Wikidata Action API did not respond with all requested entities!"
+msgstr "Ответ Wikidata Action API содержит не все запрошенные сущности!"
+
+msgid "The Wikidata Action API reports a failed query!"
+msgstr "Wikidata Action API сообщил о сбое запроса!"
+
+msgid ""
+"The Wikidata item does not exist! Replace the wikidata=* tag with an "
+"existing Wikidata item or remove the Wikidata tag."
+msgstr ""
+"Элемент Викиданных не существует! Замените тег wikidata=* на существующий "
+"элемент Викиданных или удалите тег."
+
+msgid "The Wikidata item is a redirect"
+msgstr "Элемент Викиданных является перенаправлением"
+
+msgid "The Wikipedia/Wikidata layer"
+msgstr "Слой Википедии/Викиданных"
+
+msgid "The value ''{0}'' is not allowed for the wikipedia=* tag"
+msgstr "Значение ''{0}'' недопустимо для тега wikipedia=*"
+
+msgid ""
+"The {0} reported an invalid query for {1} ({2}). This is a programming "
+"error, please report to the Wikipedia plugin."
+msgstr ""
+"{0} сообщил о недопустимом запросе {1} ({2}). Это ошибка программирования, "
+"отправьте отчёт об ошибке в модуле Wikipedia."
+
+msgid "The {0} responded with an unexpected response code: {1} {2}"
+msgstr "{0} вернул непредвиденный код ответа : {1} {2}"
+
+msgid "There is no Wikipedia site for language ''{0}''!"
+msgstr "Нет сайта Википедии для языка ''{0}''!"
+
+msgid ""
+"This check queries Wikidata to find those OSM objects that are linked to "
+"wikidata items of a type, which should not occur in OSM data (at least not "
+"as the main wikidata tag)"
+msgstr ""
+"Эта проверка запрашивает Wikidata, чтобы найти те объекты OSM, которые "
+"связаны с элементами викиданных такого типа, которые не должны встречаться в"
+" данных OSM (по крайней мере, не в качестве основного тега wikidata)"
+
+msgid "Toggle the layer displaying Wikipedia articles or Wikidata items"
+msgstr "Переключить слой, отображающий статьи Wikipedia или элементы Wikidata"
+
+msgid ""
+"Turn on the informational level validator messages in the preferences to see"
+" more details."
+msgstr ""
+"Включите сообщения валидатора информационного уровня в настройках, чтобы "
+"увидеть больше подробностей."
+
+msgid "Unknown datatype!"
+msgstr "Неизвестный тип данных!"
+
+msgid ""
+"When reading the JSON response from the {0}, an error occured! ({1}: {2})"
+msgstr "При чтении JSON-ответа от {0} произошла ошибка! ({1}: {2})"
+
+msgid "Wiki layer"
+msgstr "Слой Wiki"
+
+msgid "Wikidata Info"
+msgstr "Информация о Викиданных"
+
+msgid "Wikidata Info: {0}"
+msgstr "Информация о Викиданных: {0}"
+
+msgid "Wikidata item and Wikipedia article do not match!"
+msgstr "Элемент Викиданных и статья Википедии не соответствуют друг другу!"
+
+msgid "Wikidata item {0} is not associated with Wikipedia article {1} ({2})"
+msgstr "Элемент Викиданных {0} не связан со статьёй Википедии {1} ({2})"
+
+msgid "Wikidata items in viewport"
+msgstr "Элементы Викиданных в просматриваемой области"
+
+msgid ""
+"Wikidata value is of unusual type for the wikidata=* tag on OSM objects"
+msgstr ""
+"Значение Wikidata имеет необычный тип для тега wikidata=* на объекте OSM"
+
+msgid "Wikipedia"
+msgstr "Википедия"
+
+msgid "Wikipedia article ''{0}'' redirects to ''{1}''"
+msgstr "Статья Википедии ''{0}'' перенаправляет на ''{1}''"
+
+msgid "Wikipedia article is a redirect"
+msgstr "Статья Википедии является перенаправлением"
+
+msgid "Wikipedia articles in viewport (for language {0})"
+msgstr "Статьи Википедии в просматриваемой области (для языка {0})"
+
+msgid "Wikipedia language"
+msgstr "Язык Википедии"
+
+msgid "Wikipedia tag has invalid format!"
+msgstr "Неверный формат тега wikipedia!"
+
+msgid "Your saved queries:"
+msgstr "Сохранённые запросы:"
+
+msgid "Zoom to selection"
+msgstr "Приблизиться к выделенному"
+
+msgid "[Wiki] "
+msgstr "[Wiki] "
+
+msgid "all Wikipedia articles in Category"
+msgstr "все статьи Википедии в категории"
+
+msgid "clipboard"
+msgstr "буфер обмена"
+
+msgid "coordinates"
+msgstr "координаты"
+
+msgid "description"
+msgstr "описание"
+
+msgid "has no Q-ID"
+msgstr "не имеет Q-ID"
+
+msgid "help"
+msgstr "Справка"
+
+msgid "language"
+msgstr "язык"
+
+msgid "language code"
+msgstr "код языка"
+
+msgid "wikidata=* item exists"
+msgstr "элемент wikidata=* существует"
+
+msgid "{0} (malformed site URL)"
+msgstr "{0} (некорректный URL сайта)"
+
+msgid "{0} is an instance of {1} (or any subclass thereof)"
+msgstr "{0} — экземпляр {1} (или любой его подкласс)"
+
+msgid "{0} is not a valid Wikidata-ID"
+msgstr "{0} — некорректный Wikidata-ID"
+
+msgid ""
+"Simplifies linking OSM objects to Wikipedia articles and Wikidata items"
+msgstr ""
+"Упрощает связывание объектов OSM со статьями Википедии и элементами "
+"Викиданных"
