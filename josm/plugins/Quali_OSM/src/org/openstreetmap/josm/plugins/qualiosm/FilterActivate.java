@@ -1,13 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.openstreetmap.josm.plugins.qualiosm;
-
-
-
-
 
 
 import org.openstreetmap.josm.gui.layer.ImageryLayer;
@@ -16,9 +8,7 @@ import org.openstreetmap.josm.gui.layer.Layer;
 
 
 /**
- * This filters is responsible for creating filter's dialog where user can
- * choose and add new filter at this dialog.
- *
+ * Ativação do Filtro do Classificador de Terrenos
  * @author Gabriel Medeiros
  */
 public class FilterActivate {
