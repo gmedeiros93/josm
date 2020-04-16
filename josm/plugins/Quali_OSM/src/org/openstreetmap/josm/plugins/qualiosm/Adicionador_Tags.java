@@ -30,10 +30,9 @@ import org.openstreetmap.josm.command.SequenceCommand;
 import org.openstreetmap.josm.data.UndoRedoHandler;
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.coor.conversion.DecimalDegreesCoordinateFormat;
-import org.openstreetmap.josm.data.osm.Node;
+
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
-import org.openstreetmap.josm.data.osm.Relation;
-import org.openstreetmap.josm.data.osm.Way;
+
 import org.openstreetmap.josm.gui.MainApplication;
 import org.openstreetmap.josm.gui.Notification;
 import org.openstreetmap.josm.tools.HttpClient;
@@ -160,17 +159,17 @@ public class Adicionador_Tags extends JosmAction {
            }			
 				
 	 			
-	 String country = addressItems.getString("country","");
-          if (!"".equals(country)){
-              if (selectedObject.get("addr:country") == null){
-	      selectedObject.put("addr:country", country); 
+	 String neighborhood = addressItems.getString("neighborhood","");
+          if (!"".equals(neighborhood)){
+              if (selectedObject.get("addr:neighborhood") == null){
+	      selectedObject.put("addr:neighborhood", neighborhood); 
               }
           }	
           
-	  String state = addressItems.getString("state","");
-           if (!"".equals(state)){
-              if (selectedObject.get("addr:state") == null){
-	      selectedObject.put("addr:state", state); 
+	  String building = addressItems.getString("building","");
+           if (!"".equals(building)){
+              if (selectedObject.get("addr:building") == null){
+	      selectedObject.put("addr:building", building); 
               }
            }			
 
@@ -189,11 +188,11 @@ public class Adicionador_Tags extends JosmAction {
                       //  : null;
                 
 	
-                 new Notification(
-                            "<strong>" + tr("Quali OSM Plugin") + "</strong><br />" +
-                                    tr("Teste!")) 
-                            .setDuration(12500)
-                            .show();
+                 //new Notification(
+                           // "<strong>" + tr("Quali OSM Plugin") + "</strong><br />" +
+                                   // tr("Teste!")) 
+                           // .setDuration(12500)
+                           // .show();
                 
            
 
