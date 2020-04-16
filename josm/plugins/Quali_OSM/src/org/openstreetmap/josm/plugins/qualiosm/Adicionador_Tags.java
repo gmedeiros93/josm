@@ -53,7 +53,7 @@ public class Adicionador_Tags extends JosmAction {
          
 
         
-         super(tr("Add Address Tags"), new ImageProvider("quality_icon.png"), tr("Adicionar tags de endereço"),
+         super(tr("Add Address Tags"), new ImageProvider("quality_icon.png"), tr("Adicionar tags de endereÃ§o"),
                Shortcut.registerShortcut("Add Address Tags", tr("Add Address Tags"),
                         KeyEvent.VK_A, Shortcut.CTRL_SHIFT), false, "AddEndereco",
                 true);
@@ -111,14 +111,43 @@ public class Adicionador_Tags extends JosmAction {
             }
 
             final JsonObject addressItems = json.getJsonObject("address");
+          
+            //Selecao de um unico objeto
             //if (addressItems.size() > 0) {
           
-          String building = addressItems.getString("building","");
-           if (!"".equals(building)){
-              if (selectedObject.get("addr:building") == null){
-	      selectedObject.put("addr:building", building); 
+          //String building = addressItems.getString("building","");
+           //if (!"".equals(building)){
+             // if (selectedObject.get("addr:building") == null){
+	      //selectedObject.put("addr:building", building); 
+            //  }
+          // }
+            
+            
+             String street = addressItems.getString("street","");
+          if (!"".equals(street)){
+              if (selectedObject.get("addr:street") == null){
+	      selectedObject.put("addr:street", street); 
               }
-           }
+              
+          }	
+          
+          
+          
+          String city = addressItems.getString("city","");
+          if (!"".equals(city)){
+              if (selectedObject.get("addr:city") == null){
+	      selectedObject.put("addr:city", city); 
+              }
+              
+          }
+          
+          String suburb = addressItems.getString("suburb","");
+          if (!"".equals(suburb)){
+              if (selectedObject.get("addr:suburb") == null){
+	      selectedObject.put("addr:suburb", suburb); 
+              }
+              
+          }
 				
 
 	  String postcode = addressItems.getString("postcode","");
@@ -130,24 +159,18 @@ public class Adicionador_Tags extends JosmAction {
               }
            }			
 				
-	 String suburb = addressItems.getString("suburb","");
-          if (!"".equals(suburb)){
-              if (selectedObject.get("addr:suburb") == null){
-	      selectedObject.put("addr:suburb", suburb); 
-              }
-              
-          }			
-	 String road = addressItems.getString("road","");
-          if (!"".equals(road)){
-              if (selectedObject.get("addr:road") == null){
-	      selectedObject.put("addr:road", road); 
+	 			
+	 String country = addressItems.getString("country","");
+          if (!"".equals(country)){
+              if (selectedObject.get("addr:country") == null){
+	      selectedObject.put("addr:country", country); 
               }
           }	
           
-	  String neighborhood = addressItems.getString("neighborhood","");
-           if (!"".equals(neighborhood)){
-              if (selectedObject.get("addr:neighborhood") == null){
-	      selectedObject.put("addr:neighborhood", neighborhood); 
+	  String state = addressItems.getString("state","");
+           if (!"".equals(state)){
+              if (selectedObject.get("addr:state") == null){
+	      selectedObject.put("addr:state", state); 
               }
            }			
 
@@ -157,13 +180,13 @@ public class Adicionador_Tags extends JosmAction {
 	      selectedObject.put("addr:housenumber", housenumber); 
               }
           }    
-                final OsmPrimitive newObject = selectedObject instanceof Node
-                        ? new Node(((Node) selectedObject))
-                        : selectedObject instanceof Way
-                        ? new Way((Way) selectedObject)
-                        : selectedObject instanceof Relation
-                        ? new Relation((Relation) selectedObject)
-                        : null;
+                //final OsmPrimitive newObject = selectedObject instanceof Node
+                       // ? new Node(((Node) selectedObject))
+                      //  : selectedObject instanceof Way
+                       // ? new Way((Way) selectedObject)
+                      //  : selectedObject instanceof Relation
+                       // ? new Relation((Relation) selectedObject)
+                      //  : null;
                 
 	
                  new Notification(
@@ -188,7 +211,7 @@ public class Adicionador_Tags extends JosmAction {
             if (!noExceptionThrown) {
                 new Notification(
                         tr("Notification") +
-                                "</strong>" + tr("Falha na Verificação do Endereço") + "<strong>" + exception.toString()
+                                "</strong>" + tr("Falha na VerificaÃ§Ã£o do EndereÃ§o") + "<strong>" + exception.toString()
                 )
                         .setIcon(JOptionPane.ERROR_MESSAGE)
                         .show();
@@ -204,50 +227,27 @@ public class Adicionador_Tags extends JosmAction {
 
         final String header = "[out:json][timeout:10]";
 
-        // Definição da Bounding Box
+        // Definicao da Bounding Box
         String bbox ="[bbox:" +
                 (position.getY() - 0.075) + "," +
                 (position.getX() - 0.1  ) + "," +
                 (position.getY() + 0.075) + "," +
                 (position.getX() + 0.1  ) + "]";
 
-        StringBuilder filterLineBuilder = new StringBuilder();
+   
 
         // Verifica as tags do objeto
         newObject.keySet().stream().forEach((key) -> {
-            String value = newObject.get(key);
-   /*         if (Arrays.asList(tagsToCheckForDuplicates).contains(key)) {
-                filterLineBuilder.append("[\"");
-
-                String tagName;
-                
-                
-                if (Arrays.asList(streetTypeTags).contains(key)) {
-                    tagName = streetTypeTagPlaceholder;
-                } else {
-                    tagName = key;
-                }
-                
-                filterLineBuilder.append(tagName.replaceAll("\"", "\\\\\""));
-                
-                filterLineBuilder.append("\"=\"");
-                filterLineBuilder.append(value.replaceAll("\"", "\\\\\"")); 
-                filterLineBuilder.append("\"]");
-            }  */
+           
+  
         });
 
-        String filterLine = filterLineBuilder.toString();
+   
 
         StringBuilder filterBuilder = new StringBuilder();
 
         
- /*       for (String streetTypeTag: streetTypeTags) {
-            for (String objectType: objectTypesToCheckforDuplicates) {
-                filterBuilder.append(objectType);
-                filterBuilder.append(filterLine.replaceAll(streetTypeTagPlaceholder, streetTypeTag));
-                filterBuilder.append(";");
-            }
-        } */
+ 
 
         String filter = filterBuilder.toString();
 
@@ -287,7 +287,7 @@ public class Adicionador_Tags extends JosmAction {
 
                         urls.add("https://www.openstreetmap.org/" + URLEncoder.encode(type, "UTF-8") + "/" + URLEncoder.encode(Integer.toString(osmId), "UTF-8"));
                     } catch (NullPointerException e) {
-                        urls.add("<URL não encontrada>");
+                        urls.add("<URL nÃ£o encontrada>");
                     }
                 }
             }
@@ -300,7 +300,7 @@ public class Adicionador_Tags extends JosmAction {
         } finally {
             if (!noExceptionThrown) {
                 new Notification(
-                        tr("Falha na busca por endereços duplicados.") +
+                        tr("Falha na busca por endereÃ§os duplicados.") +
                                 "<strong>" + tr("Quali_OSM Plugin") + "</strong>" + exception.toString()
                 )
                 .setIcon(JOptionPane.ERROR_MESSAGE)
@@ -325,7 +325,7 @@ public class Adicionador_Tags extends JosmAction {
 
     @Override
     protected void updateEnabledState(final Collection<? extends OsmPrimitive> selection) {
-        // Verifica se apenas um objeto está selecionado.
+        // Verifica se apenas um objeto estÃ¡ selecionado.
         setEnabled(selection != null && selection.size() >= 1);
     }
 
