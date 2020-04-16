@@ -1,11 +1,11 @@
 package org.openstreetmap.josm.plugins.qualiosm;
 
-import java.awt.Color;
+
 import static org.openstreetmap.josm.tools.I18n.tr;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import javax.swing.JMenu;
+
 
 import org.openstreetmap.josm.actions.JosmAction;
 import org.openstreetmap.josm.gui.MainApplication;
@@ -13,9 +13,7 @@ import org.openstreetmap.josm.tools.ImageProvider;
 import org.openstreetmap.josm.tools.Shortcut;
 import org.openstreetmap.josm.gui.layer.ImageryLayer;
 
-import java.awt.*;
-import java.awt.geom.*;
-import javax.swing.*;
+
 
 /**
  *
