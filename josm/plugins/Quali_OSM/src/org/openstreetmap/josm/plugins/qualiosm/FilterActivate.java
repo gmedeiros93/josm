@@ -8,7 +8,7 @@ import org.openstreetmap.josm.gui.layer.Layer;
 
 
 /**
- * Ativação do Filtro do Classificador de Terrenos
+ * Ativacao do Filtro do Classificador de Terrenos
  * @author Gabriel Medeiros
  */
 public class FilterActivate {
