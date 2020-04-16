@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.openstreetmap.josm.plugins.qualiosm;
 
 import java.awt.Color;
@@ -27,9 +22,7 @@ public class FilterTerrain {
     
   public BufferedImage filter_terrain(BufferedImage workImage) throws IOException {
  
- BufferedReader br = new BufferedReader(new FileReader("classesy.txt"));
-
-     // Store the classes color in a map.
+ BufferedReader br = new BufferedReader(new FileReader("classes.txt"));
 
      TreeMap<Integer,Color> classMap = new TreeMap<Integer, Color>();
 
@@ -61,13 +54,13 @@ public class FilterTerrain {
 
      br.close();
 
-     // Read the signatures from a file. 
+     // Leitura do arquivo signatures.txt
 
      TreeMap<Integer,int[]> minMap = new TreeMap<>();
 
      TreeMap<Integer,int[]> maxMap = new TreeMap<>();
 
-     br = new BufferedReader(new FileReader("signaturesy.txt"));
+     br = new BufferedReader(new FileReader("signatures.txt"));
 
      while(true)
 
@@ -107,13 +100,13 @@ public class FilterTerrain {
 
      br.close();
 
-     // Create a color image to hold the results of the classification.
+     
 
      int w = workImage.getWidth();  int h = workImage.getHeight();
 
      BufferedImage results = new BufferedImage(w,h,BufferedImage.TYPE_INT_RGB);
 
-     // Do the classification, pixel by pixel, selecting which class they should be assigned to.
+     // Classificacao pixel por pixel
 
      for(int row=0;row<h;row++)
 
@@ -123,15 +116,15 @@ public class FilterTerrain {
 
          int rgb = workImage.getRGB(col,row);
 
-         int r = (int)((rgb&0x00FF0000)>>>16); // Red level
+         int r = (int)((rgb&0x00FF0000)>>>16); // Nivel do gradiente vermelho
 
-         int g = (int)((rgb&0x0000FF00)>>>8);  // Green level
+         int g = (int)((rgb&0x0000FF00)>>>8);  // Nivel do gradiente verde
 
-         int b = (int) (rgb&0x000000FF);       // Blue level
+         int b = (int) (rgb&0x000000FF);       // Nivel do gradiente azul
 
-         // To which class should we assign this pixel?
+        
 
-         Color assignedClass = new Color(0,0,0); // unassigned.
+         Color assignedClass = new Color(0,0,0); // Pixel sem classificacao
 
          for(int key:minMap.keySet())
 
@@ -147,7 +140,7 @@ public class FilterTerrain {
 
            }
 
-         // With the color, paint the output image.
+ 
 
          results.setRGB(col,row,assignedClass.getRGB());
 
