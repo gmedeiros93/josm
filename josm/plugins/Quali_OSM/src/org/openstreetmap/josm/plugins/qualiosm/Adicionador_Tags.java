@@ -1,13 +1,19 @@
 package org.openstreetmap.josm.plugins.qualiosm;
 
+
+import java.awt.BorderLayout;
+import java.awt.Container;
 import static org.openstreetmap.josm.tools.I18n.tr;
 import static org.openstreetmap.josm.tools.I18n.trn;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -20,7 +26,13 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.json.JsonValue;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
+import javax.swing.SwingUtilities;
+
 
 
 import org.openstreetmap.josm.actions.JosmAction;
@@ -41,7 +53,41 @@ import org.openstreetmap.josm.tools.Shortcut;
 
 
 
+
+
 public class Adicionador_Tags extends JosmAction {
+
+      
+     static class BarThread extends Thread {
+    private static int DELAY = 500;
+
+    JProgressBar progressBar;
+
+    public BarThread(JProgressBar bar) {
+      progressBar = bar;
+    }
+
+    public void run() {
+      int minimum = progressBar.getMinimum();
+      int maximum = progressBar.getMaximum();
+      Runnable runner = new Runnable() {
+        public void run() {
+          int value = progressBar.getValue();
+          progressBar.setValue(value + 1);
+        }
+      };
+      for (int i = minimum; i < maximum; i++) {
+        try {
+          SwingUtilities.invokeAndWait(runner);
+          // our job for each step is to just sleep
+          Thread.sleep(DELAY);
+        } catch (InterruptedException ignoredException) {
+        } catch (InvocationTargetException ignoredException) {
+        }
+      }
+    }
+  }
+      
     static final String baseUrl = "https://nominatim.openstreetmap.org/reverse?format=json";
 
     protected static String[] objectTypesToCheckforDuplicates = {"way", "node", "relation"};
@@ -61,8 +107,38 @@ public class Adicionador_Tags extends JosmAction {
     @Override
     public void actionPerformed(ActionEvent event) {
         // Retorna o objeto selecionado
+       
+     
+            final JProgressBar aJProgressBar = new JProgressBar(0, 50);
+            
+            
+             final JButton aJButton = new JButton("Start");
+
+    ActionListener actionListener = new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+       
+        Thread stepper = new BarThread(aJProgressBar);
+        stepper.start();
+      }
+    };
+
+
+
+    String title = ("Stepping Progress");
+    JFrame theFrame = new JFrame(title);
+    theFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+    Container contentPane = theFrame.getContentPane();
+    contentPane.add(aJProgressBar, BorderLayout.NORTH);
+
+    theFrame.setSize(300, 200);
+    theFrame.setVisible(true);
+        
+        
+        
         final Collection<OsmPrimitive> sel = MainApplication.getLayerManager().getEditDataSet().getAllSelected();
 
+        
     
         
         new Notification(
@@ -194,14 +270,8 @@ public class Adicionador_Tags extends JosmAction {
                            // .setDuration(12500)
                            // .show();
                 
-           
-
-            
             noExceptionThrown = true;
         } catch (MalformedURLException | UnsupportedEncodingException e) {
-            
-            
-          
             
             exception = e;
         } catch (IOException | NullPointerException e) {
@@ -222,6 +292,7 @@ public class Adicionador_Tags extends JosmAction {
     }
 
     protected static ArrayList<String> getUrlsOfObjectsWithThatAddress(OsmPrimitive newObject, LatLon position) {
+          
         ArrayList<String> urls = new ArrayList<>();
 
         final String header = "[out:json][timeout:10]";
@@ -233,25 +304,13 @@ public class Adicionador_Tags extends JosmAction {
                 (position.getY() + 0.075) + "," +
                 (position.getX() + 0.1  ) + "]";
 
-   
-
         // Verifica as tags do objeto
         newObject.keySet().stream().forEach((key) -> {
-           
-  
         });
 
-   
-
         StringBuilder filterBuilder = new StringBuilder();
-
-        
- 
-
         String filter = filterBuilder.toString();
-
         final String footer = "out body;";
-
         // Overpass API 
         String query = header + bbox + ";" + "(" + filter + ");" + footer;
 
@@ -311,7 +370,6 @@ public class Adicionador_Tags extends JosmAction {
 
         return urls;
     }
-
     
     @Override
     protected void updateEnabledState() {
@@ -326,9 +384,10 @@ public class Adicionador_Tags extends JosmAction {
     protected void updateEnabledState(final Collection<? extends OsmPrimitive> selection) {
         // Verifica se apenas um objeto estÃ¡ selecionado.
         setEnabled(selection != null && selection.size() >= 1);
-    }
-
-   
-
-    
+    }  
 }
+    
+
+  
+
+  
