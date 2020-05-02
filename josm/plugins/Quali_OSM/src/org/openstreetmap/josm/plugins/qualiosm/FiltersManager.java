@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.openstreetmap.josm.plugins.qualiosm;
 
 import java.awt.image.BufferedImage;
@@ -11,10 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.openstreetmap.josm.tools.ImageProcessor;
 
-/**
- *
- * @author Gabriel
- */
+
 public class FiltersManager implements ImageProcessor{
     
    
@@ -43,15 +36,11 @@ public class FiltersManager implements ImageProcessor{
                 BufferedImage oldImg = image;
                 
                 
-                // applying filter to the current image
+                // Aplicacao do filtro
                 
              
                 image = filter.filter_terrain(image);
-            
-                
-               
-                
-                
+             
                 if (image == null) {
                     image = oldImg;
                     
