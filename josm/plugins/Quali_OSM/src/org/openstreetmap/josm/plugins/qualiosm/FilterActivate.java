@@ -1,25 +1,16 @@
-
 package org.openstreetmap.josm.plugins.qualiosm;
-
 
 import org.openstreetmap.josm.gui.layer.ImageryLayer;
 import org.openstreetmap.josm.gui.layer.Layer;
-
-
 
 /**
  * Ativacao do Filtro do Classificador de Terrenos
  * @author Gabriel Medeiros
  */
 public class FilterActivate {
-
-  
-    
     private Layer layer;
     private FiltersManager filtersManager;
    
-   
-
     public FilterActivate(ImageryLayer layer) {
         
         this.layer = layer;
