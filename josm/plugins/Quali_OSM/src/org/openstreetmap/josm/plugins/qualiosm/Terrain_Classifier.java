@@ -1,4 +1,11 @@
-// License: GPL. For details, see LICENSE file.
+/**************************************************
+* File: Terrain_Classifier.java
+* Author: Gabriel Franklin Braz de Medeiros
+* Programa de Pos-Graduacao em Informatica
+* University of Brasilia
+* Professor Maristela Terto de Holanda
+*****************************************************/
+
 package org.openstreetmap.josm.plugins.qualiosm;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
@@ -14,19 +21,16 @@ import org.openstreetmap.josm.data.imagery.ImageryInfo;
 import org.openstreetmap.josm.gui.MainApplication;
 import org.openstreetmap.josm.gui.layer.ImageryLayer;
 
-/**
- * This class toggles the wireframe rendering mode.
- * @since 2530
- */
-public class Classificador_Terreno extends ToggleAction {
+/************************************************************************************
+ * Class Terrain_Classifier is derived from ToggleAction, which means that the button
+ * has two different states: enabled and disabled.
+ * When state is enabled, the terrain classifier should be applyed.
+ ************************************************************************************/
+public class Terrain_Classifier extends ToggleAction {
     
  protected Icon icon;
 
-
-    /**
-     * Constructs a new {@code WireframeToggleAction}.
-     */
-    public Classificador_Terreno() {
+    public Terrain_Classifier() {
         super(tr("Enable/Disable Terrain Classifier"),
               null, /* no icon */
               tr("Enable/disable terrain classifier"),
@@ -35,7 +39,7 @@ public class Classificador_Terreno extends ToggleAction {
         );
         putValue("toolbar", "wireframe");
         Action register = MainApplication.getToolbar().register(this);
-        //setSelected(MapRendererFactory.getInstance().isWireframeMapRendererActive());
+      
         notifySelectedState();
     }
 
@@ -59,7 +63,7 @@ public class Classificador_Terreno extends ToggleAction {
             FilterActivate filterActivate = new FilterActivate((ImageryLayer) MainApplication.getLayerManager().getActiveLayer());
            
             MainApplication.getLayerManager().getActiveLayer().setFilterStateChanged();
-          //  System.out.println("Ativado!");
+     
           
   
      
@@ -77,7 +81,7 @@ public class Classificador_Terreno extends ToggleAction {
         MainApplication.getLayerManager().addLayer(layer2);
       MainApplication.getLayerManager().setActiveLayer(layer2);
         
-    System.out.println("Desativado!");
+  
           
         }
                 
