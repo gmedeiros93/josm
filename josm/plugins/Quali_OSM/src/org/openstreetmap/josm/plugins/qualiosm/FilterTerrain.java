@@ -1,8 +1,10 @@
-/*
-@File: FilterTerrain.java
-Application of the filter used for the land classifier.
-*/
-
+/***************************************************
+* File: FilterTerrain.java
+* Author: Gabriel Franklin Braz de Medeiros
+* Programa de Pos-Graduacao em Informatica
+* University of Brasilia
+* Professor Maristela Terto de Holanda
+*****************************************************/
 
 package org.openstreetmap.josm.plugins.qualiosm;
 
@@ -15,6 +17,13 @@ import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
+
+
+/***********************************************************
+* Class FilterTerrain is reponsible for implementing the 
+* paralellepiped classifier on a image layer, using the files
+* classes.txt and signatures.txt
+***********************************************************/
 
 public class FilterTerrain 
 {
@@ -78,16 +87,16 @@ TreeMap<Integer,Color> classMap = new TreeMap<Integer, Color>();
 
      BufferedImage results = new BufferedImage(w,h,BufferedImage.TYPE_INT_RGB);
 
-     // Classificacao pixel por pixel
+     // Classification pixel by pixel
      for(int row=0;row<h;row++)
        for(int col=0;col<w;col++)
          {
          int rgb = workImage.getRGB(col,row);
-         int r = (int)((rgb&0x00FF0000)>>>16); // Nivel do gradiente vermelho
-         int g = (int)((rgb&0x0000FF00)>>>8);  // Nivel do gradiente verde
-         int b = (int) (rgb&0x000000FF);       // Nivel do gradiente azul
+         int r = (int)((rgb&0x00FF0000)>>>16); // Red Level
+         int g = (int)((rgb&0x0000FF00)>>>8);  // Green Level
+         int b = (int) (rgb&0x000000FF);       // Blue Level
          
-         Color assignedClass = new Color(0,0,0); // Pixel sem classificacao
+         Color assignedClass = new Color(0,0,0); // Pixel unclassified
 
          for(int key:minMap.keySet())
            {
