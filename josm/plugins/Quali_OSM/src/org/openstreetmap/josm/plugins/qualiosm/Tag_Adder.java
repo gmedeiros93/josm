@@ -1,40 +1,35 @@
+/***************************************************
+* File: Tag_Adder.java
+* Author: Gabriel Franklin Braz de Medeiros
+* Programa de Pos-Graduacao em Informatica
+* University of Brasilia
+* Professor Maristela Terto de Holanda
+*****************************************************/
+
 package org.openstreetmap.josm.plugins.qualiosm;
 
-
-import java.awt.BorderLayout;
-import java.awt.Container;
+import java.awt.Font;
+import java.awt.Label;
 import static org.openstreetmap.josm.tools.I18n.tr;
 import static org.openstreetmap.josm.tools.I18n.trn;
-
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.json.JsonValue;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-
 import javax.swing.JOptionPane;
-import javax.swing.JProgressBar;
-import javax.swing.SwingUtilities;
-
-
-
 import org.openstreetmap.josm.actions.JosmAction;
 import org.openstreetmap.josm.command.ChangeCommand;
 import org.openstreetmap.josm.command.Command;
@@ -42,63 +37,31 @@ import org.openstreetmap.josm.command.SequenceCommand;
 import org.openstreetmap.josm.data.UndoRedoHandler;
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.coor.conversion.DecimalDegreesCoordinateFormat;
-
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
-
 import org.openstreetmap.josm.gui.MainApplication;
 import org.openstreetmap.josm.gui.Notification;
 import org.openstreetmap.josm.tools.HttpClient;
 import org.openstreetmap.josm.tools.ImageProvider;
 import org.openstreetmap.josm.tools.Shortcut;
 
+/******************************************************************
+* The class Tag_Adder is derived from the class JosmAction,
+* which is base class helper for all actions in JOSM.
+* This class uses Nominatim tool for capturate address information
+* from the objects in OpenStreetMap.
+********************************************************************/
 
-
-
-
-public class Adicionador_Tags extends JosmAction {
-
-      
-     static class BarThread extends Thread {
-    private static int DELAY = 500;
-
-    JProgressBar progressBar;
-
-    public BarThread(JProgressBar bar) {
-      progressBar = bar;
-    }
-
-    public void run() {
-      int minimum = progressBar.getMinimum();
-      int maximum = progressBar.getMaximum();
-      Runnable runner = new Runnable() {
-        public void run() {
-          int value = progressBar.getValue();
-          progressBar.setValue(value + 1);
-        }
-      };
-      for (int i = minimum; i < maximum; i++) {
-        try {
-          SwingUtilities.invokeAndWait(runner);
-          // our job for each step is to just sleep
-          Thread.sleep(DELAY);
-        } catch (InterruptedException ignoredException) {
-        } catch (InvocationTargetException ignoredException) {
-        }
-      }
-    }
-  }
-      
+public class Tag_Adder extends JosmAction {  
+    
     static final String baseUrl = "https://nominatim.openstreetmap.org/reverse?format=json";
 
     protected static String[] objectTypesToCheckforDuplicates = {"way", "node", "relation"};
     protected static String streetTypeTagPlaceholder = "___street_type_tag___";
     protected static String overpassBaseUrl = "https://overpass-api.de/api/interpreter";
 
-    public Adicionador_Tags() {
-         
-
-        
-         super(tr("Add Address Tags"), new ImageProvider("quality_icon.png"), tr("Adicionar tags de endereÃ§o"),
+    public Tag_Adder() {
+          
+         super(tr("Add Address Tags"), new ImageProvider("quality_icon.png"), tr("Add address tags to selected objects."),
                Shortcut.registerShortcut("Add Address Tags", tr("Add Address Tags"),
                         KeyEvent.VK_A, Shortcut.CTRL_SHIFT), false, "AddEndereco",
                 true);
@@ -106,49 +69,27 @@ public class Adicionador_Tags extends JosmAction {
     }
     @Override
     public void actionPerformed(ActionEvent event) {
-        // Retorna o objeto selecionado
+        // Returns selected objects
        
-     
-            final JProgressBar aJProgressBar = new JProgressBar(0, 50);
-            
-            
-             final JButton aJButton = new JButton("Start");
-
-    ActionListener actionListener = new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-       
-        Thread stepper = new BarThread(aJProgressBar);
-        stepper.start();
-      }
-    };
-
-
-
-    String title = ("Stepping Progress");
-    JFrame theFrame = new JFrame(title);
-    theFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-    Container contentPane = theFrame.getContentPane();
-    contentPane.add(aJProgressBar, BorderLayout.NORTH);
-
-    theFrame.setSize(300, 200);
-    theFrame.setVisible(true);
+ JFrame theFrame = new JFrame("Tag Adder");
+ Label label = new Label("Please wait for the addition of address tags...");
+ label.setFont(new Font("Tahoma", Font.PLAIN, 16));
+ 
+ theFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+ theFrame.add(label);
+ theFrame.setSize(400, 100);
+ theFrame.setVisible(true);
+ long start = System.currentTimeMillis();
         
-        
-        
-        final Collection<OsmPrimitive> sel = MainApplication.getLayerManager().getEditDataSet().getAllSelected();
+ final Collection<OsmPrimitive> sel = MainApplication.getLayerManager().getEditDataSet().getAllSelected();
 
-        
-    
-        
-        new Notification(
+ new Notification(
                             "<strong>" + tr("Quali OSM Plugin") + "</strong><br />" +
-                                    tr("Tags de endereco inseridas com sucesso!")) 
+                                    tr("Address tags successfully inserted!")) 
                             .setDuration(12500)
                             .show();
         
-           
-
+      
         final List<Command> commands = new ArrayList<>();
         sel.stream().forEach((selectedObject) -> {
             OsmPrimitive newObject = loadAddress(selectedObject);
@@ -157,8 +98,13 @@ public class Adicionador_Tags extends JosmAction {
             }
         });
         if (!commands.isEmpty()) {
-            UndoRedoHandler.getInstance().add(new SequenceCommand(trn("Adicionar Endereco", "Adicionar Endereco", commands.size()), commands));
+            UndoRedoHandler.getInstance().add(new SequenceCommand(trn("Insert address", "Insert address", commands.size()), commands));
         }
+        long finish = System.currentTimeMillis();
+        long tag_adder_time = finish - start;
+        System.out.println("Time to execute = " + tag_adder_time +" ms.");
+        theFrame.setVisible(false);
+       theFrame.dispose();  
     }
     
     public static OsmPrimitive loadAddress(OsmPrimitive selectedObject){
@@ -187,7 +133,7 @@ public class Adicionador_Tags extends JosmAction {
 
             final JsonObject addressItems = json.getJsonObject("address");
           
-            //Selecao de um unico objeto
+            /*Selection of just one object
             //if (addressItems.size() > 0) {
           
           //String building = addressItems.getString("building","");
@@ -195,7 +141,7 @@ public class Adicionador_Tags extends JosmAction {
              // if (selectedObject.get("addr:building") == null){
 	      //selectedObject.put("addr:building", building); 
             //  }
-          // }
+           }*/
             
             
              String street = addressItems.getString("street","");
@@ -205,9 +151,7 @@ public class Adicionador_Tags extends JosmAction {
               }
               
           }	
-          
-          
-          
+         
           String city = addressItems.getString("city","");
           if (!"".equals(city)){
               if (selectedObject.get("addr:city") == null){
@@ -255,20 +199,7 @@ public class Adicionador_Tags extends JosmAction {
 	      selectedObject.put("addr:housenumber", housenumber); 
               }
           }    
-                //final OsmPrimitive newObject = selectedObject instanceof Node
-                       // ? new Node(((Node) selectedObject))
-                      //  : selectedObject instanceof Way
-                       // ? new Way((Way) selectedObject)
-                      //  : selectedObject instanceof Relation
-                       // ? new Relation((Relation) selectedObject)
-                      //  : null;
-                
-	
-                 //new Notification(
-                           // "<strong>" + tr("Quali OSM Plugin") + "</strong><br />" +
-                                   // tr("Teste!")) 
-                           // .setDuration(12500)
-                           // .show();
+             
                 
             noExceptionThrown = true;
         } catch (MalformedURLException | UnsupportedEncodingException e) {
@@ -280,7 +211,7 @@ public class Adicionador_Tags extends JosmAction {
             if (!noExceptionThrown) {
                 new Notification(
                         tr("Notification") +
-                                "</strong>" + tr("Falha na VerificaÃ§Ã£o do EndereÃ§o") + "<strong>" + exception.toString()
+                                "</strong>" + tr("Falha na VerificaÃƒÂ§ÃƒÂ£o do EndereÃƒÂ§o") + "<strong>" + exception.toString()
                 )
                         .setIcon(JOptionPane.ERROR_MESSAGE)
                         .show();
@@ -297,14 +228,14 @@ public class Adicionador_Tags extends JosmAction {
 
         final String header = "[out:json][timeout:10]";
 
-        // Definicao da Bounding Box
+        // Definition of the Bounding Box
         String bbox ="[bbox:" +
                 (position.getY() - 0.075) + "," +
                 (position.getX() - 0.1  ) + "," +
                 (position.getY() + 0.075) + "," +
                 (position.getX() + 0.1  ) + "]";
 
-        // Verifica as tags do objeto
+        // Verify tags from objects
         newObject.keySet().stream().forEach((key) -> {
         });
 
@@ -345,7 +276,7 @@ public class Adicionador_Tags extends JosmAction {
 
                         urls.add("https://www.openstreetmap.org/" + URLEncoder.encode(type, "UTF-8") + "/" + URLEncoder.encode(Integer.toString(osmId), "UTF-8"));
                     } catch (NullPointerException e) {
-                        urls.add("<URL nÃ£o encontrada>");
+                        urls.add("<URL nÃƒÂ£o encontrada>");
                     }
                 }
             }
@@ -358,7 +289,7 @@ public class Adicionador_Tags extends JosmAction {
         } finally {
             if (!noExceptionThrown) {
                 new Notification(
-                        tr("Falha na busca por endereÃ§os duplicados.") +
+                        tr("Falha na busca por endereÃƒÂ§os duplicados.") +
                                 "<strong>" + tr("Quali_OSM Plugin") + "</strong>" + exception.toString()
                 )
                 .setIcon(JOptionPane.ERROR_MESSAGE)
@@ -382,7 +313,7 @@ public class Adicionador_Tags extends JosmAction {
 
     @Override
     protected void updateEnabledState(final Collection<? extends OsmPrimitive> selection) {
-        // Verifica se apenas um objeto estÃ¡ selecionado.
+        // Verify if just one object is selected
         setEnabled(selection != null && selection.size() >= 1);
     }  
 }
