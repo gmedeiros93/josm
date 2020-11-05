@@ -51,7 +51,7 @@ import org.openstreetmap.josm.tools.Shortcut;
 * from the objects in OpenStreetMap.
 ********************************************************************/
 
-public class Tag_Adder extends JosmAction {  
+public class Limpa_Tags extends JosmAction {  
     
     static final String baseUrl = "https://nominatim.openstreetmap.org/reverse?format=json";
 
@@ -59,10 +59,10 @@ public class Tag_Adder extends JosmAction {
     protected static String streetTypeTagPlaceholder = "___street_type_tag___";
     protected static String overpassBaseUrl = "https://overpass-api.de/api/interpreter";
 
-    public Tag_Adder() {
+    public Limpa_Tags() {
           
-         super(tr("Add address tags"), new ImageProvider("quality_icon.png"), tr("Add address tags to selected objects."),
-               Shortcut.registerShortcut("Add Address Tags", tr("Add Address Tags"),
+         super(tr("Clean Address Tags"), new ImageProvider("clean.png"), tr("Clean Address Tags"),
+               Shortcut.registerShortcut("Add Address Tags", tr("Clean Address Tags"),
                         KeyEvent.VK_A, Shortcut.CTRL_SHIFT), false, "AddEndereco",
                 true);
        
@@ -133,72 +133,65 @@ public class Tag_Adder extends JosmAction {
 
             final JsonObject addressItems = json.getJsonObject("address");
           
-            /*Selection of just one object
-            //if (addressItems.size() > 0) {
+            
+            
+             String postcode = addressItems.getString("postcode","");
+          if (!"".equals(postcode)){
+              if (selectedObject.get("addr:postcode") != null){
+	      selectedObject.remove("addr:postcode");
+              }
+              
+          }	
           
-          //String building = addressItems.getString("building","");
-           //if (!"".equals(building)){
-             // if (selectedObject.get("addr:building") == null){
-	      //selectedObject.put("addr:building", building); 
-            //  }
-           }*/
-            
-            
-             String street = addressItems.getString("street","");
+          
+              String building = addressItems.getString("building","");
+          if (!"".equals(building)){
+              if (selectedObject.get("addr:building") != null){
+	      selectedObject.remove("addr:building");
+              }
+              
+          }
+          
+                   String street = addressItems.getString("street","");
           if (!"".equals(street)){
-              if (selectedObject.get("addr:street") == null){
-	      selectedObject.put("addr:street", street); 
+              if (selectedObject.get("addr:street") != null){
+	      selectedObject.remove("addr:street");
               }
               
-          }	
-         
-          String city = addressItems.getString("city","");
+          }
+          
+                   String city = addressItems.getString("city","");
           if (!"".equals(city)){
-              if (selectedObject.get("addr:city") == null){
-	      selectedObject.put("addr:city", city); 
+              if (selectedObject.get("addr:city") != null){
+	      selectedObject.remove("addr:city");
               }
               
           }
           
-          String suburb = addressItems.getString("suburb","");
+                   String suburb = addressItems.getString("suburb","");
           if (!"".equals(suburb)){
-              if (selectedObject.get("addr:suburb") == null){
-	      selectedObject.put("addr:suburb", suburb); 
+              if (selectedObject.get("addr:suburb") != null){
+	      selectedObject.remove("addr:suburb");
               }
               
           }
-				
-
-	  String postcode = addressItems.getString("postcode","");
-           if (!"".equals(postcode)){
-              if (selectedObject.get("addr:postcode") == null){
-	      selectedObject.put("addr:postcode", postcode); 
-               
-              
-              }
-           }		
-				
-	 			
-	 String neighborhood = addressItems.getString("neighborhood","");
-          if (!"".equals(neighborhood)){
-              if (selectedObject.get("addr:neighborhood") == null){
-	      selectedObject.put("addr:neighborhood", neighborhood); 
-              }
-          }	
           
-	  String building = addressItems.getString("building","");
-           if (!"".equals(building)){
-              if (selectedObject.get("addr:building") == null){
-	      selectedObject.put("addr:building", building); 
+                    String neighborhood = addressItems.getString("neighborhood","");
+          if (!"".equals(neighborhood)){
+              if (selectedObject.get("addr:neighborhood") != null){
+	      selectedObject.remove("addr:neighborhood");
               }
-           }			
-
-          String housenumber = addressItems.getString("housenumber","");
-          if (!"".equals(housenumber)){
-              if (selectedObject.get("addr:housenumber") == null){
-	      selectedObject.put("addr:housenumber", housenumber); 
+              
+          }
+          
+                    String housenumber = addressItems.getString("housenumber","");
+          if (!"".equals(suburb)){
+              if (selectedObject.get("addr:housenumber") != null){
+	      selectedObject.remove("addr:housenumber");
               }
-          }    
+              
+          }
+         
              
                 
             noExceptionThrown = true;

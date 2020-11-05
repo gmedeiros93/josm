@@ -51,7 +51,7 @@ import org.openstreetmap.josm.tools.Shortcut;
 * from the objects in OpenStreetMap.
 ********************************************************************/
 
-public class Tag_Adder extends JosmAction {  
+public class Tags_Nominatim extends JosmAction {  
     
     static final String baseUrl = "https://nominatim.openstreetmap.org/reverse?format=json";
 
@@ -59,9 +59,9 @@ public class Tag_Adder extends JosmAction {
     protected static String streetTypeTagPlaceholder = "___street_type_tag___";
     protected static String overpassBaseUrl = "https://overpass-api.de/api/interpreter";
 
-    public Tag_Adder() {
+    public Tags_Nominatim() {
           
-         super(tr("Add address tags"), new ImageProvider("quality_icon.png"), tr("Add address tags to selected objects."),
+         super(tr("Add postcode tag - Nominatim"), new ImageProvider("postcode_icon.png"), tr("Add postcode tag - Nominatim"),
                Shortcut.registerShortcut("Add Address Tags", tr("Add Address Tags"),
                         KeyEvent.VK_A, Shortcut.CTRL_SHIFT), false, "AddEndereco",
                 true);
@@ -133,18 +133,9 @@ public class Tag_Adder extends JosmAction {
 
             final JsonObject addressItems = json.getJsonObject("address");
           
-            /*Selection of just one object
-            //if (addressItems.size() > 0) {
-          
-          //String building = addressItems.getString("building","");
-           //if (!"".equals(building)){
-             // if (selectedObject.get("addr:building") == null){
-	      //selectedObject.put("addr:building", building); 
-            //  }
-           }*/
             
             
-             String street = addressItems.getString("street","");
+               String street = addressItems.getString("street","");
           if (!"".equals(street)){
               if (selectedObject.get("addr:street") == null){
 	      selectedObject.put("addr:street", street); 
@@ -179,10 +170,10 @@ public class Tag_Adder extends JosmAction {
            }		
 				
 	 			
-	 String neighborhood = addressItems.getString("neighborhood","");
-          if (!"".equals(neighborhood)){
-              if (selectedObject.get("addr:neighborhood") == null){
-	      selectedObject.put("addr:neighborhood", neighborhood); 
+	 String neighbourhood = addressItems.getString("neighbourhood","");
+          if (!"".equals(neighbourhood)){
+              if (selectedObject.get("addr:neighbourhood") == null){
+	      selectedObject.put("addr:neighbourhood", neighbourhood); 
               }
           }	
           
@@ -198,7 +189,16 @@ public class Tag_Adder extends JosmAction {
               if (selectedObject.get("addr:housenumber") == null){
 	      selectedObject.put("addr:housenumber", housenumber); 
               }
-          }    
+          }   
+          
+         
+             String road = addressItems.getString("road","");
+          if (!"".equals(road)){
+              if (selectedObject.get("addr:road") == null){
+	      selectedObject.put("addr:road", road); 
+              }
+          }   
+         
              
                 
             noExceptionThrown = true;

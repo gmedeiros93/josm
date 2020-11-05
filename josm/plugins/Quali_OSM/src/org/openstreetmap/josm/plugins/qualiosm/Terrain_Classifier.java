@@ -31,8 +31,8 @@ public class Terrain_Classifier extends ToggleAction {
  protected Icon icon;
 
     public Terrain_Classifier() {
-        super(tr("Enable/Disable Terrain Classifier"),
-              null, /* no icon */
+        super(tr("Classificador de Paralelepípedo"),
+              "terrain.png", /* no icon */
               tr("Enable/disable terrain classifier"),
               Shortcut.registerShortcut("menu:view:wireframe", tr("Toggle Wireframe view"), KeyEvent.VK_W, Shortcut.CTRL),
               false /* register toolbar */

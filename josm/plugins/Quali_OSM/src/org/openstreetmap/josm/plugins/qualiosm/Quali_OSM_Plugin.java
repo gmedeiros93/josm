@@ -26,7 +26,13 @@ for all plugins in JOSM.
 public class Quali_OSM_Plugin extends Plugin {
 
     Tag_Adder adicionador_Tags;
+    Tags_Correios postcode_correios;
+    Tags_Nominatim postcode_nominatim;
+    Tags_Cepaberto postcode_cepaberto;
     Terrain_Classifier classificador_Terreno;
+    Limpa_Tags limpa_tags;
+    
+   
 
   
       public Quali_OSM_Plugin(PluginInformation info) {
@@ -34,14 +40,24 @@ public class Quali_OSM_Plugin extends Plugin {
         // Initialize plugin
 
         adicionador_Tags = new Tag_Adder();
-        classificador_Terreno = new Terrain_Classifier();
+       classificador_Terreno = new Terrain_Classifier();
+        postcode_correios = new Tags_Correios();
+        postcode_nominatim = new Tags_Nominatim();
+        postcode_cepaberto = new Tags_Cepaberto();
+        limpa_tags = new Limpa_Tags();
       
    final JMenu loadTaskMenu = MainApplication.getMenu()
                 .addMenu("QualiOSM", tr("QualiOSM"), KeyEvent.VK_K,
                 MainApplication.getMenu().getDefaultMenuPos(), HelpUtil.ht("/Plugin/task")
         );
         loadTaskMenu.add(new JMenuItem(adicionador_Tags));
-        loadTaskMenu.add(new JMenuItem(classificador_Terreno));
+         loadTaskMenu.add(new JMenuItem(postcode_nominatim));
+        loadTaskMenu.add(new JMenuItem(postcode_correios));
+        loadTaskMenu.add(new JMenuItem(postcode_cepaberto));
+        loadTaskMenu.add(new JMenuItem(limpa_tags));
+        //loadTaskMenu.add(new JMenuItem(classificador_Terreno));
+        
+      
          
     }
         
